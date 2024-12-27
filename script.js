@@ -20,4 +20,24 @@ const recipes = [
       description: "Fluffy pancakes perfect for breakfast."
     },
   ];
+  const recipeContainer = document.getElementById("recipe-container");
+
+  function displayRecipes(recipesToDisplay) {
+    recipeContainer.innerHTML = ""; // Clear existing recipes
+    recipesToDisplay.forEach(recipe => {
+      const recipeCard = document.createElement("div");
+      recipeCard.classList.add("recipe-card");
+      recipeCard.innerHTML = `
+        <img src="${recipe.image}" alt="${recipe.name}" />
+        <div class="recipe-info">
+          <h2>${recipe.name}</h2>
+          <p>${recipe.description}</p>
+        </div>
+      `;
+      recipeContainer.appendChild(recipeCard);
+    });
+  }
+  
+  // Initial display of recipes
+  displayRecipes(recipes);
   
